@@ -81,7 +81,6 @@ pnpm i"
 # 最后
 
 黑号不负责。
-交流群：[https://chat.zsxwz.com/](https://chat.zsxwz.com/)
 
 
 
