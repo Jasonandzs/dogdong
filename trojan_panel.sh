@@ -53,12 +53,12 @@ if test -s /etc/systemd/system/trojan-web.service; then
 	systemctl stop nginx
 if test -s /etc/nginx/nginx.conf; then
 	rm -rf /etc/nginx/nginx.conf
-	wget -P /etc/nginx https://github.com/Jasonandzs/dogdong/blob/main/nginx.conf
+  wget -P /etc/nginx https://github.com/Jasonandzs/dogdong/blob/main/nginx.conf
 	green "================================="
 	blue "     请输入Trojan绑定的域名"
 	green "================================="
 	read your_domain
-	sed -i "s/localhost/$your_domain/;" /etc/nginx/nginx.conf
+  sed -i "s/localhost/$your_domain/;" /etc/nginx/nginx.conf
 	green " "
 	green "================================="
 	 blue "    开始下载伪装站点源码并部署"
@@ -73,17 +73,23 @@ if test -s /etc/nginx/nginx.conf; then
 	blue "       开始配置trojan-web"
 	green "================================="
 	sleep 2s
-	sed -i '/ExecStart/s/trojan web -p 81/trojan web/g' /etc/systemd/system/trojan-web.service
-	sed -i '/ExecStart/s/trojan web/trojan web -p 81/g' /etc/systemd/system/trojan-web.service
-	systemctl daemon-reload
-	systemctl restart trojan-web
-	systemctl restart nginx
-	green " "
-	green " "
-	green " "
+  sed -i '/ExecStart/s/trojan web -p 81/trojan web/g' /etc/systemd/system/trojan-web.service
+  sed -i '/ExecStart/s/trojan web/trojan web -p 81/g' /etc/systemd/system/trojan-web.service
+  systemctl daemon-reload
+  systemctl restart trojan-web
+  systemctl restart nginx
+  green " "
+  green " "
+  green " "
 	green "=================================================================="
-	blue "  伪装站点目录 /usr/share/nginx/html "
-	blue "  面板管理地址 http://$your_domain:81 "
+	green " "
+	 blue "  WIN / MAC 通用客户端下载、本脚本更多介绍内容 "
+	 blue "  https://www.v2rayssr.com/trojanpanel.html "
+	green " "
+	 blue "  脚本交流电报群：https://goii.cc/tg"
+	green " "
+	 blue "  伪装站点目录 /usr/share/nginx/html "
+	 blue "  面板管理地址 http://$your_domain:81 "
 	green "=================================================================="
 else
 	green "==============================="
@@ -114,16 +120,19 @@ trojan_install(){
 start_menu(){
   clear
 	green "=========================================================="
-	blue " 本脚本支持：Debian9+ / Ubuntu16.04+ / Centos7+"
+   blue " 本脚本支持：Debian9+ / Ubuntu16.04+ / Centos7+"
+	 blue " 网站：www.v2rayssr.com （已开启禁止国内访问）"
+	 blue " YouTube频道：波仔分享"
+	 blue " 本脚本禁止在国内任何网站转载"
 	green "=========================================================="
-	blue " 简介：一键更改 Trojan-Panel 面板端口并设置伪装站点"
+   blue " 简介：一键更改 Trojan-Panel 面板端口并设置伪装站点"
 	green "=========================================================="
-	red " 运行本脚本之前请确认已经安装Jrohy大神的面板程序"
+	  red " 运行本脚本之前请确认已经安装Jrohy大神的面板程序"
 	green "=========================================================="
-	blue " 1. Jrohy大神的 Trojan 多用户管理部署程序"
-	blue " 2. 更改 Trojan 面板端口并设置伪装站点"
-	blue " 3. 安装 BBRPlus4 合一加速"
-	blue " 0. 退出脚本"
+	 blue " 1. Jrohy大神的 Trojan 多用户管理部署程序"
+   blue " 2. 更改 Trojan 面板端口并设置伪装站点"
+   blue " 3. 安装 BBRPlus4 合一加速"
+   blue " 0. 退出脚本"
     echo
     read -p "请输入数字:" num
     case "$num" in
